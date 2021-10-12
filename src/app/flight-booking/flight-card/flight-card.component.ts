@@ -13,6 +13,7 @@ export class FlightCardComponent implements OnInit, OnChanges {
   @Input() item: Flight | undefined | null;
   @Input() isSelected = false;
   @Output() isSelectedChange = new EventEmitter<boolean>();
+  @Output() edit = new EventEmitter<void>();
 
   constructor() {
     if (this.debug) {

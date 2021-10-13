@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { Flight } from '../../entities/flight';
 import { FlightService } from '../shared/services/flight.service';
@@ -39,7 +40,7 @@ export class FlightSearchComponent implements OnInit, OnDestroy {
 
   @ViewChild('flightSearchForm') flightSearchForm: FormGroup | undefined;
 
-  constructor(private flightService: FlightService) {}
+  constructor(private flightService: FlightService, private router: Router) {}
 
   ngOnInit(): void {
     if (this.from && this.to) {
@@ -106,6 +107,10 @@ export class FlightSearchComponent implements OnInit, OnDestroy {
     // console.log(updatedFlight);
 
     this.flights = this.flights.map((flight) => (flight.id === updatedFlight.id ? updatedFlight : flight));
+  }
+
+  onEdit(id: number): void {
+    this.router.navigate(['/flight-edit', id, { showDetails: true }]);
   }
 
   /*trackById(index: number, flight: Flight): number {

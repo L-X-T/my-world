@@ -110,7 +110,7 @@ export class FlightSearchComponent implements OnInit, OnDestroy {
   }
 
   onEdit(id: number): void {
-    this.router.navigate(['/flight-edit', id, { showDetails: true }]);
+    this.router.navigate(['/flight-booking', 'flight-edit', id, { showDetails: true }]);
   }
 
   /*trackById(index: number, flight: Flight): number {

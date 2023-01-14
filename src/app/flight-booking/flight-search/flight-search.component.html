@@ -50,7 +50,7 @@
   </div>
 </div>
 
-<div *ngIf="flights$ | async as asyncFlights" class="card">
+<div *ngIf="flights$ | async; let asyncFlights; else noFlights" class="card">
   <div class="content">
     <table class="table table-contensed" *ngIf="asyncFlights.length > 0">
       <thead>
@@ -75,6 +75,8 @@
     </table>
   </div>
 </div>
+
+<ng-template #noFlights>No flights</ng-template>
 
 <div class="card">
   <div class="content">

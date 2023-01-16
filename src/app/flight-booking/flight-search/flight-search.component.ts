@@ -11,8 +11,8 @@ import { share, takeUntil } from 'rxjs/operators';
   styleUrls: ['./flight-search.component.css']
 })
 export class FlightSearchComponent implements OnInit, OnDestroy {
-  from = 'Graz';
-  to = 'Hamburg';
+  from = 'Hamburg';
+  to = 'Graz';
 
   flights: Flight[] = [];
   flights$: Observable<Flight[]> | undefined;
@@ -80,5 +80,9 @@ export class FlightSearchComponent implements OnInit, OnDestroy {
         }
       });
     }
+  }
+
+  trackById(index: number, flight: Flight): number {
+    return flight.id;
   }
 }
